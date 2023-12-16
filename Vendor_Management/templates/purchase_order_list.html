@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Purchase Order List{% endblock %}
+
+{% block content %}
+    <h1>Purchase Order List</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>PO Number</th>
+                <th>Vendor</th>
+                <th>Order Date</th>
+                <th>Delivery Date</th>
+                <th>Quantity</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for po in purchase_orders %}
+                <tr>
+                    <td><a href="{% url 'purchase-order-detail' po.id %}">{{ po.po_number }}</a></td>
+                    <td>{{ po.vendor.name }}</td>
+                    <td>{{ po.order_date }}</td>
+                    <td>{{ po.delivery_date }}</td>
+                    <td>{{ po.quantity }}</td>
+                    <td>{{ po.status }}</td>
+
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

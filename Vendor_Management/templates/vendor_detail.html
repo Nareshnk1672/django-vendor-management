@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Vendor Details{% endblock %}
+
+{% block content %}
+    <h1>{{ vendor.name }}</h1>
+    <p><strong>Contact Details:</strong> {{ vendor.contact_details }}</p>
+    <p><strong>Address:</strong> {{ vendor.address }}</p>
+    <p><strong>Vendor Code:</strong> {{ vendor.vendor_code }}</p>
+
+    <p><strong>On-Time Delivery Rate:</strong> {{ vendor.on_time_delivery_rate }}%</p>
+    <p><strong>Quality Rating Average:</strong> {{ vendor.quality_rating_avg }}</p>
+    <p><strong>Average Response Time:</strong> {{ vendor.average_response_time }} days</p>
+    <p><strong>Fulfillment Rate:</strong> {{ vendor.fulfillment_rate }}%</p>
+
+
+    <a href="{% url 'purchase-order-list' vendor.id %}">View Purchase Orders</a>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}Vendor List{% endblock %}
+
+{% block content %}
+    <h1>Vendor List</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Vendor Name</th>
+                <th>Contact Details</th>
+                <th>Address</th>
+                <th>Vendor Code</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for vendor in vendors %}
+                <tr>
+                    <td><a href="{% url 'vendor-detail' vendor.id %}">{{ vendor.name }}</a></td>
+                    <td>{{ vendor.contact_details }}</td>
+                    <td>{{ vendor.address }}</td>
+                    <td>{{ vendor.vendor_code }}</td>
+
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
